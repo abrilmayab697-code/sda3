@@ -1,18 +1,29 @@
-const eventos = [
-  "1950 – Test de Turing",
-  "1957 – Perceptrón",
-  "1997 – Deep Blue",
-  "2012 – Deep Learning",
-  "2020+ – IA generativa"
-];
+document.addEventListener("DOMContentLoaded", () => {
 
-let indice = 0;
-const timeline = document.getElementById("timeline");
+  const eventos = [
+    "1950 – Test de Turing",
+    "1957 – Perceptrón",
+    "1997 – Deep Blue",
+    "2012 – Deep Learning",
+    "2020+ – IA generativa"
+  ];
 
-function cambiarEvento() {
-  timeline.textContent = eventos[indice];
-  indice = (indice + 1) % eventos.length;
-}
+  let indice = 0;
+  const timeline = document.getElementById("timeline");
 
-cambiarEvento();
-setInterval(cambiarEvento, 2500);
+  // Seguridad extra
+  if (!timeline) {
+    console.error("No existe el elemento con id 'timeline'");
+    return;
+  }
+
+  function cambiarEvento() {
+    timeline.textContent = eventos[indice];
+    indice = (indice + 1) % eventos.length;
+  }
+
+  cambiarEvento();
+  setInterval(cambiarEvento, 2500);
+
+});
+
