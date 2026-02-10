@@ -1,11 +1,14 @@
-document.getElementById("contacto").addEventListener("submit", function(event) {
-  event.preventDefault();
-
+document.addEventListener("DOMContentLoaded", function () {
+  const formulario = document.getElementById("contacto");
   const notificacion = document.getElementById("notificacion");
-  notificacion.textContent = "✅Nos pondremos en contacto con usted";
-  notificacion.style.display = "block";
 
-  setTimeout(() => {
-    notificacion.style.display = "none";
-  }, 3000);
+  if (!formulario) {
+    console.error("❌ No existe un form con id='contacto'");
+    return;
+  }
+
+  formulario.addEventListener("submit", function (event) {
+    event.preventDefault();
+    notificacion.style.display = "block";
+  });
 });
