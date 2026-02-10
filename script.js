@@ -1,14 +1,15 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const formulario = document.getElementById("contacto");
-  const notificacion = document.getElementById("notificacion");
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contacto");
+  const modal = document.getElementById("modal");
+  const cerrar = document.getElementById("cerrar");
 
-  if (!formulario) {
-    console.error("❌ No existe un form con id='contacto'");
-    return;
-  }
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();       // Evita que la página se recargue
+    modal.style.display = "flex"; // Muestra el modal
+  });
 
-  formulario.addEventListener("submit", function (event) {
-    event.preventDefault();
-    notificacion.style.display = "block";
+  cerrar.addEventListener("click", () => {
+    modal.style.display = "none"; // Cierra el modal al pulsar
+    form.reset();                 // Opcional: limpia los campos del formulario
   });
 });
